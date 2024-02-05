@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_2/product/enums/image_enum.dart';
-import 'package:weather_app_2/product/useful/padding.dart';
-import 'package:weather_app_2/product/widgets/image_card_widget.dart';
+import '../../enums/image_enum.dart';
+import '../../useful/padding.dart';
+import '../../widgets/image_card_widget.dart';
 
 abstract class EntryPageViewModel extends State<StatefulWidget> {
   final String entryPageTopText1 = "WELCOME TO";

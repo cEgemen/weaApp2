@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_2/product/pages/entryPage/entry_page_view_model.dart';
-import 'package:weather_app_2/product/useful/padding.dart';
+import 'entry_page_view_model.dart';
+import '../../useful/padding.dart';
 
 class EntryPage extends StatefulWidget {
   const EntryPage({super.key});

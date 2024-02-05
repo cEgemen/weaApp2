@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'product/pages/entryPage/entry_page.dart';
+import 'package:weather_app_2/product/routeManager/route_manager.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: _appTitle,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      home: const EntryPage(),
+      onGenerateRoute:RouteManager.init.onGenerateRoute
     );
   }
 }
