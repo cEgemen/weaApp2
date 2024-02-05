@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/product/enums/image_enum.dart';
+import 'package:weather_app_2/product/useful/padding.dart';
+import 'package:weather_app_2/product/widgets/image_card_widget.dart';
 
 abstract class EntryPageViewModel extends State<StatefulWidget> {
-  final String entryPageTopTest = "WELCOME TO WEATHER APP";
+  final String entryPageTopText1 = "WELCOME TO";
+  final String entryPageTopText2 = "WEATHER APP";
   final String startButtonText = "Let's Start";
-  
+
   final List<Widget> entryPageShowPageList = [
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.amber,
-    ),
-    Container(
-      color: Colors.grey,
-    )
+    Padding(padding: const AppPadding.normalHorizontalPadding(), child: ImageCardWidget(path: ImageEnum.entry_img1.imagePath())),
+    Padding(padding: const AppPadding.normalHorizontalPadding(), child: ImageCardWidget(path: ImageEnum.entry_img2.imagePath())),
+    Padding(padding: const AppPadding.normalHorizontalPadding(), child: ImageCardWidget(path: ImageEnum.entry_img3.imagePath()))
   ];
   late final PageController pageViewController;
   late final EntryPageConstantSized entryConstantSized;
   late final EntryPageConstantColor entryConstantColor;
-  int currentPageIndex = 0;
+  int currentPageIndex = 1;
   final pageCount = 3;
   final double _viewFraction = 0.8;
   @override
@@ -66,8 +64,7 @@ class EntryPageConstantColor {
   static const double _passiveColorOpacity = .5;
   // Colorlar theme ya baglanabilir ....
   final Color activeColor = Colors.orange;
-  final Color passiveColor = Colors.grey.withOpacity(_passiveColorOpacity);
+  final Color passiveColor = Colors.white.withOpacity(_passiveColorOpacity);
   final Color buttonIconColor = Colors.white;
   final Color buttonBackColor = Colors.green.shade300;
-
 }
