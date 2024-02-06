@@ -1,8 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:weather_app_2/product/enums/router_enum.dart';
-import 'package:weather_app_2/product/pages/entryPage/entry_page.dart';
+import '../../enums/router_enum.dart';
+import '../../pages/entryPage/entry_page.dart';
 
 class RouteManager with _Routemixin{
          RouteManager._();
