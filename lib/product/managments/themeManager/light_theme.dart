@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/src/material/theme_data.dart';
-import 'package:weather_app_2/product/managments/themeManager/i_app_theme.dart';
+import 'i_app_theme.dart';
 
 class LightTheme implements IAppTheme{
    LightTheme._();

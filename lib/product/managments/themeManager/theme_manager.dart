@@ -2,7 +2,7 @@
 
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/widgets.dart';
-import 'package:weather_app_2/product/managments/themeManager/i_theme_manager.dart';
+import 'i_theme_manager.dart';
 
 import '../../enums/theme_enum.dart';
 

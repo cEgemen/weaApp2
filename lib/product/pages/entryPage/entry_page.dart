@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'entry_page_view_model.dart';
+
 import '../../useful/padding.dart';
+import 'entry_page_view_model.dart';
 
 class EntryPage extends StatefulWidget {
   const EntryPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _EntryPageState();
+  State<EntryPage> createState() => _EntryPageState();
 }
 
 class _EntryPageState extends EntryPageViewModel {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

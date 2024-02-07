@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_2/product/managments/themeManager/dark_theme.dart';
-import 'package:weather_app_2/product/managments/themeManager/light_theme.dart';
+
+import '../managments/themeManager/dark_theme.dart';
+import '../managments/themeManager/light_theme.dart';
 
 enum ThemeEnum  {
     light,

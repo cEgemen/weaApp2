@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import '../../../core/base/base_state.dart';
 
 import '../../enums/image_enum.dart';
 import '../../useful/padding.dart';
 import '../../widgets/image_card_widget.dart';
+import 'entry_page.dart';
 
-abstract class EntryPageViewModel extends State<StatefulWidget> {
+abstract class EntryPageViewModel extends BaseState<EntryPage> {
   final String entryPageTopText1 = "WELCOME TO";
   final String entryPageTopText2 = "WEATHER APP";
   final String startButtonText = "Let's Start";

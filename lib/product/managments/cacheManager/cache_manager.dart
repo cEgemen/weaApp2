@@ -1,9 +1,9 @@
 
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:weather_app_2/product/enums/cache_enum.dart';
-import 'package:weather_app_2/product/errors/cache_error.dart';
-import 'package:weather_app_2/product/managments/cacheManager/i_cache_manager.dart';
+import '../../enums/cache_enum.dart';
+import '../../errors/cache_error.dart';
+import 'i_cache_manager.dart';
 
 class CacheManager implements ICacheManager{
    CacheManager._();
