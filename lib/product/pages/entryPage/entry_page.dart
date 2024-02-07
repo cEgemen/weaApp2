@@ -56,7 +56,8 @@ class _EntryPageState extends EntryPageViewModel {
       children: [
         InkWell(
           borderRadius: BorderRadius.circular(100),
-          onTap: () {},
+          onTap: () {
+          },
           child: Card(
             color: entryConstantColor.buttonBackColor,
             shape: const CircleBorder(),
