@@ -11,27 +11,28 @@ class EntryPage extends StatefulWidget {
 }
 
 class _EntryPageState extends EntryPageViewModel {
-  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[400],
-      body: Padding(
-        padding: const AppPadding.normalHorizontalPadding(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Spacer(
-              flex: 1,
-            ),
-            Expanded(flex: 2, child: _entryPageTopText(context)),
-            Expanded(flex: 5, child: _pageView()),
-            Expanded(flex: 1, child: _pageViewBelow()),
-            Expanded(flex: 1, child: _customStartIconButton()),
-            const Spacer(
-              flex: 1,
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey[400],
+        body: Padding(
+          padding: const AppPadding.normalHorizontalPadding(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Spacer(
+                flex: 1,
+              ),
+              Expanded(flex: 2, child: _entryPageTopText(context)),
+              Expanded(flex: 5, child: _pageView()),
+              Expanded(flex: 1, child: _pageViewBelow()),
+              Expanded(flex: 1, child: _customStartIconButton()),
+              const Spacer(
+                flex: 1,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -59,7 +60,7 @@ class _EntryPageState extends EntryPageViewModel {
         InkWell(
           borderRadius: BorderRadius.circular(100),
           onTap: () {
-             nextPage();
+            nextPage();
           },
           child: Card(
             color: entryConstantColor.buttonBackColor,

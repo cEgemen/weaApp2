@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
+import '../../useful/radius.dart';
 
 class AnimatedAndTouchableContainer extends StatelessWidget {
   const AnimatedAndTouchableContainer(
-      {super.key, required Widget child,double? width, double? height, Color? color, Duration? duration, required void Function() onTap})
+      {super.key, required Widget child, double? width, double? height, Color? color, Duration? duration, required void Function() onTap})
       : _color = color ?? Colors.white,
         _duration = duration,
         _height = height ?? 50,
@@ -20,14 +20,13 @@ class AnimatedAndTouchableContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: _onTap,
+      borderRadius: BorderRadius.all(AppRadius.lowCircleRadius()),
       child: AnimatedContainer(
           height: _height,
           width: _width,
-          decoration: BoxDecoration(
-              color: _color,
-              border: Border.all(color: Colors.black),
-              borderRadius:const  BorderRadius.all(Radius.circular(50))),
-          duration: _duration ?? const Duration(seconds: 1),
+          decoration:
+              BoxDecoration(color: _color, border: Border.all(color: Colors.black), borderRadius: BorderRadius.all(AppRadius.lowCircleRadius())),
+          duration: _duration ?? const Duration(milliseconds: 500),
           child: _child),
     );
   }

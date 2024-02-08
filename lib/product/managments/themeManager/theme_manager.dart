@@ -1,9 +1,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'i_theme_manager.dart';
 
 import '../../enums/theme_enum.dart';
+import 'i_theme_manager.dart';
 
 class ThemeManager extends ChangeNotifier implements IThemeManager{
   ThemeManager._();
