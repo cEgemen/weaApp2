@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'product/managments/providerManager/provider_manager.dart';
-import 'product/managments/themeManager/theme_manager.dart';
 
+import 'product/managments/providerManager/provider_manager.dart';
 import 'product/managments/routeManager/route_manager.dart';
+import 'product/managments/themeManager/theme_manager.dart';
 
 void main(List<String> args) {
   runApp( MyApp());

@@ -1,13 +1,13 @@
 
-    import 'package:flutter/widgets.dart';
+import 'package:flutter/widgets.dart';
+import 'package:mobx/mobx.dart';
 
 class BaseView<T extends Store> extends StatefulWidget {
-      const BaseView({super.key,required T viewMode,void Function(T viewMode) ? initial,void Function() ? disposse,required Widget Function(BuildContext context,T viewMode) build}):
-      _viewModel=viewMode , _initial = initial , _disposse = disposse,_build =build;
-      final T _viewModel;
-      final void Function(T viewMode) ? _initial;
-      final  void Function() ? _disposse; 
-      final Widget Function(BuildContext context , T viewmodel) _build;
+      const BaseView({super.key,required this.viewModel,required this.initial,required this.disposse,required this.build});
+      final T viewModel;
+      final void Function(T viewModel) initial;
+      final  void Function() disposse; 
+      final Widget Function(BuildContext context , T viewmodel) build;
 
       @override
       State<BaseView> createState() => _BaseViewState();
@@ -18,21 +18,15 @@ class BaseView<T extends Store> extends StatefulWidget {
       @override
   void initState() {
     super.initState();
-    if(widget._initial != null)
-    {
-        widget._initial!(widget._viewModel);
-    }
+
   }
    
    @override
   void dispose() {
     super.dispose();
-     if(widget._disposse != null)
-     {
-        widget._disposse!();
-     }
+
   }
 
       @override
-      Widget build(BuildContext context) => widget._build(context ,widget._viewModel);
+      Widget build(BuildContext context) => widget.build(context ,widget.viewModel);
     }

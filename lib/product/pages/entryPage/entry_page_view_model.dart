@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../core/base/base_state.dart';
+import '../../enums/router_enum.dart';
 
+import '../../../core/base/base_state.dart';
 import '../../enums/image_enum.dart';
 import '../../useful/padding.dart';
-import '../../widgets/image_card_widget.dart';
+import '../../widgets/cards/image_card_widget.dart';
 import 'entry_page.dart';
 
 abstract class EntryPageViewModel extends BaseState<EntryPage> {
@@ -51,6 +52,12 @@ abstract class EntryPageViewModel extends BaseState<EntryPage> {
       currentPageIndex = value;
     });
   }
+
+  void nextPage()
+  {
+    Navigator.of(context).pushNamed(RouterEnum.signAndLogInPage.name);
+  }
+
 }
 
 class EntryPageConstantSized {

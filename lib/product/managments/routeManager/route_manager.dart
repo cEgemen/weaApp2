@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import '../../pages/signAndLogInPage/sign_or_log_in_view.dart';
 
 import '../../enums/router_enum.dart';
 import '../../pages/entryPage/entry_page.dart';
@@ -17,6 +18,7 @@ class RouteManager with _Routemixin{
               switch(pageEnum)
               {
                 case RouterEnum.signAndLogInPage:
+                return toPage(const SignOrLogInView());
                 case RouterEnum.entryPage:
                 default:
                 return toPage(const  EntryPage(),);

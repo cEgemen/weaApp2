@@ -1,7 +1,6 @@
 
 
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'i_theme_manager.dart';
 
 import '../../enums/theme_enum.dart';
