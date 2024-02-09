@@ -1,10 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import '../../pages/signAndLogInPage/sign_or_log_in_view.dart';
 
 import '../../enums/router_enum.dart';
 import '../../pages/entryPage/entry_page.dart';
+import '../../pages/signAndLogInPage/sign_or_log_in_view.dart';
 
 class RouteManager with _Routemixin{
          RouteManager._();

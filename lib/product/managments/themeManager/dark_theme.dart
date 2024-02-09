@@ -1,7 +1,8 @@
 
 
-import 'package:flutter/src/material/theme_data.dart';
+import 'package:flutter/material.dart';
 
+import '../../useful/radius.dart';
 import 'i_app_theme.dart';
 
 class DarkTheme implements IAppTheme{
@@ -12,6 +13,9 @@ class DarkTheme implements IAppTheme{
      }
 
   @override
-  ThemeData get theme =>ThemeData.dark().copyWith();
+  ThemeData get theme =>ThemeData.dark().copyWith(
+    inputDecorationTheme: InputDecorationTheme(border: OutlineInputBorder(borderRadius: BorderRadius.all(AppRadius.highCircleRadius())),
+      ),
+  );
 
 }

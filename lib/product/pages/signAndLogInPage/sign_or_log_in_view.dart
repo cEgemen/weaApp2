@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import "package:flutter_mobx/flutter_mobx.dart";
+
+import '../../../core/base/base_state.dart';
 import '../../useful/radius.dart';
 import '../../widgets/containers/touchable_and_animated_container.dart';
-import '../../../core/base/base_state.dart';
 import 'sign_or_log_in_view_state.dart';
-import "package:flutter_mobx/flutter_mobx.dart";
 
 class SignOrLogInView extends StatefulWidget {
   const SignOrLogInView({super.key});
@@ -13,7 +14,7 @@ class SignOrLogInView extends StatefulWidget {
 }
 
 class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
-  final SignOrLogInViewState _state = SignOrLogInViewState();
+  final SignOrLogInViewState _state =SignOrLogInViewState();
   @override
   Widget build(BuildContext context) {
     return builder;
@@ -92,17 +93,17 @@ class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
 
   AnimatedAndTouchableContainer _animatedContainer() {
     return AnimatedAndTouchableContainer(
-      color: _state.animatedContainerColor(ActivePageName.signIn),
-      width: _state.animatedContainerWidht(ActivePageName.signIn),
+      color: _state.animatedContainerColor(ActivePageName.signUp),
+      width: _state.animatedContainerWidht(ActivePageName.signUp),
       height: _state.animatedContainerPassiveHeight,
       child: Center(
         child: Text(
           _state.animatContainerText1,
-          style: _state.animatedContainerTextStyle(context, ActivePageName.signIn),
+          style: _state.animatedContainerTextStyle(context, ActivePageName.signUp),
         ),
       ),
       onTap: () {
-        _state.changeActivePage(ActivePageName.signIn);
+        _state.changeActivePage(ActivePageName.signUp);
       },
     );
   }
