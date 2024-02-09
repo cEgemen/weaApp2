@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../constants/app_constants.dart';
 
 import '../../../core/base/base_state.dart';
 import '../../enums/image_enum.dart';
@@ -53,25 +54,23 @@ abstract class EntryPageViewModel extends BaseState<EntryPage> {
     });
   }
 
-  void nextPage()
-  {
+  void nextPage() {
     Navigator.of(context).pushNamed(RouterEnum.signAndLogInPage.name);
   }
-
 }
 
 class EntryPageConstantSized {
   EntryPageConstantSized._();
   static EntryPageConstantSized constantSized = EntryPageConstantSized._();
-  final double circleContainerActiveSizes = 30;
-  final double circleContainerDismisSizes = 20;
-  final double buttonIconSize = 50;
+  final double circleContainerActiveSizes = AppConstants.indicatorActiveContainerSize;
+  final double circleContainerDismisSizes = AppConstants.indicatorPassiveContainerSize;
+  final double buttonIconSize = AppConstants.lowWidgetSize;
 }
 
 class EntryPageConstantColor {
   EntryPageConstantColor._();
   static EntryPageConstantColor constantColor = EntryPageConstantColor._();
-  static const double _passiveColorOpacity = .5;
+  static const double _passiveColorOpacity = AppConstants.middleOpacity;
   // Colorlar theme ya baglanabilir ....
   final Color activeColor = Colors.orange;
   final Color passiveColor = Colors.white.withOpacity(_passiveColorOpacity);

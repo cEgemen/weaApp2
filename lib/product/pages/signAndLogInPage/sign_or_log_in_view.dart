@@ -14,7 +14,7 @@ class SignOrLogInView extends StatefulWidget {
 }
 
 class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
-  final SignOrLogInViewState _state =SignOrLogInViewState();
+  final SignOrLogInViewState _state = SignOrLogInViewState();
   @override
   Widget build(BuildContext context) {
     return builder;
@@ -56,10 +56,15 @@ class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
       right: 0,
       left: 0,
       top: -(_state.animatedContainerPassiveHeight / 2),
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.yellow,
+      child: Card(
+        elevation: 10,
+        shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(bottomLeft: AppRadius.mediumCircleRadius(), bottomRight: AppRadius.mediumCircleRadius())),
+        child: Container(
+          decoration: BoxDecoration(
+              color: Colors.yellow,
+              borderRadius: BorderRadius.only(bottomLeft: AppRadius.mediumCircleRadius(), bottomRight: AppRadius.mediumCircleRadius())),
+        ),
       ),
     );
   }

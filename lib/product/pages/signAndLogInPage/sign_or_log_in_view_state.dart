@@ -1,24 +1,23 @@
- 
-
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import '../../constants/app_constants.dart';
 import '../../../core/extensions/context_extension.dart';
 import 'logInPage/log_in_view.dart';
 import 'signUpPage/sign_up_view.dart';
 part 'sign_or_log_in_view_state.g.dart';
-   
-   class SignOrLogInViewState = _SignOrLogInViewState with _$SignOrLogInViewState;
-   
-   abstract class _SignOrLogInViewState with Store {
-  final String animatContainerText1 = "Sign In";
+
+class SignOrLogInViewState = _SignOrLogInViewState with _$SignOrLogInViewState;
+
+abstract class _SignOrLogInViewState with Store {
+  final String animatContainerText1 = "Sign Up";
   final String animatContainerText2 = "Log In";
-  final double animatedContainerPassiveHeight = 60;
-  final double _animatedContainerPassiveWidht = 80;
-  final double _animatedContainerActiveWidht = 120;
+  final double animatedContainerPassiveHeight = AppConstants.lowWidgetSize;
+  final double _animatedContainerPassiveWidht = AppConstants.middleWidgetSize;
+  final double _animatedContainerActiveWidht = AppConstants.highWidgetSize;
   final Color _animatedContainerActiveColor = Colors.deepPurple.shade200;
   final Color _animatedContainerPassiveColor = Colors.white;
 
-   @observable
+  @observable
   ActivePageName activePage = ActivePageName.values[0];
 
   @action
@@ -33,7 +32,8 @@ part 'sign_or_log_in_view_state.g.dart';
   Widget activePageReturner() {
     return activePage == ActivePageName.signUp ? const SignUpView() : const LogInView();
   }
-double animatedContainerWidht(ActivePageName page) {
+
+  double animatedContainerWidht(ActivePageName page) {
     return page == activePage ? _animatedContainerActiveWidht : _animatedContainerPassiveWidht;
   }
 

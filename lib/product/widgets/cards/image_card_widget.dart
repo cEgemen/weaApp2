@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../constants/app_constants.dart';
 
 class ImageCardWidget extends StatelessWidget {
-  const ImageCardWidget({super.key, required String path, double? height = 50, double? widht = 50})
+  const ImageCardWidget({super.key, required String path,
+   double? height = AppConstants.lowWidgetSize, double? widht = AppConstants.lowWidgetSize})
       : _path = path,
         _height = height,
         _widht = widht;
