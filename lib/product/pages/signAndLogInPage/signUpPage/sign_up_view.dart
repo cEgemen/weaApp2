@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../../../core/extensions/context_extension.dart';
-import 'sign_up_view_state.dart';
-import '../../../widgets/buttons/templatesButtons/sign_up_button.dart';
-import '../../../widgets/cards/circle_icon_card_widget.dart';
+
 import '../../../useful/padding.dart';
+import '../../../widgets/buttons/templatesButtons/sign_up_button.dart';
 import '../../../widgets/textFields/atomikWidget/password_text_field.dart';
+import 'sign_up_view_state.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -17,6 +16,11 @@ class SignUpView extends StatefulWidget {
 class _SignUpViewState extends State<SignUpView> {
   final SignUpViewState _state = SignUpViewState();
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return builder;
   }
@@ -25,24 +29,16 @@ class _SignUpViewState extends State<SignUpView> {
           child: Padding(
         padding: const AppPadding.normalHorizontalPadding(),
         child: Scaffold(
-          body: SingleChildScrollView(
-              physics:const NeverScrollableScrollPhysics(),
-              child: Container(
-                height: context.height * .775,
-                color: Colors.teal,
-                child: Column(
-                  children: [
-                    const Spacer(
-                      flex: 1,
-                    ),
-                    Expanded(flex: 6, child: _formColumn()),
-                    Expanded(flex: 2, child: _signUpButtonRow()),
-                    const Spacer(
-                      flex: 1,
-                    )
-                  ],
-                ),
-              )),
+          resizeToAvoidBottomInset: false,
+          body: Column(
+            children: [
+              Expanded(flex: 6, child: _formColumn()),
+              Expanded(flex: 2, child: _signUpButtonRow()),
+              const Spacer(
+                flex: 2,
+              )
+            ],
+          ),
         ),
       ));
 
@@ -70,9 +66,11 @@ class _SignUpViewState extends State<SignUpView> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SignUpButton(
-          onPressed: () {},
-        ),
+        Observer(builder: (_) {
+          return SignUpButton(
+            onPressed: _state.isButtonReady ? () {} : null,
+          );
+        }),
       ],
     );
   }
@@ -80,9 +78,15 @@ class _SignUpViewState extends State<SignUpView> {
   Row _passwordTextFieldRow() {
     return Row(
       children: [
-        const Expanded(child: PasswordTextField()),
+        Expanded(
+            child: PasswordTextField(
+          controller: _state.passwordField,
+          onChanged: (value) {
+            _state.checkPasswordField();
+          },
+        )),
         Observer(builder: (_) {
-          return CircleIIconCardWidget(icon: Icons.done_outline_outlined);
+          return _state.setCircleCardIcon(_state.isPasswordFieldReady);
         })
       ],
     );
@@ -93,11 +97,15 @@ class _SignUpViewState extends State<SignUpView> {
       children: [
         Expanded(
             child: TextField(
-          onChanged: (value) {},
+          controller: _state.emailField,
+          onChanged: (value) {
+            _state.checkEmailField();
+          },
           autofillHints: const [AutofillHints.email],
+          keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(label: Text(_state.emailTextFieldText), prefixIcon: const Icon(Icons.email_outlined)),
         )),
-        Observer(builder: (context) => CircleIIconCardWidget(icon: Icons.done_outline_outlined))
+        Observer(builder: (context) => _state.setCircleCardIcon(_state.isEmailFieldReady))
       ],
     );
   }
@@ -106,13 +114,16 @@ class _SignUpViewState extends State<SignUpView> {
     return Row(
       children: [
         Expanded(
-            child: TextFormField(
-          validator: (value) {},
+            child: TextField(
+          controller: _state.nameField,
+          onChanged: (value) {
+            _state.checkNameField();
+          },
           autofillHints: const [AutofillHints.name, AutofillHints.givenName],
           decoration: InputDecoration(label: Text(_state.nameTextFieldText), prefixIcon: const Icon(Icons.person_outline_outlined)),
         )),
         Observer(builder: (_) {
-          return CircleIIconCardWidget(icon: Icons.done_outline_outlined);
+          return _state.setCircleCardIcon(_state.isNameFieldReady);
         })
       ],
     );

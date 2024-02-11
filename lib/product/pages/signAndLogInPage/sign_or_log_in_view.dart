@@ -22,6 +22,7 @@ class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
 
   Widget get builder => SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           body: Column(
             children: [
               Expanded(

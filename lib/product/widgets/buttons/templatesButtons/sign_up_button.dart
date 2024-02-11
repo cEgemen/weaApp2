@@ -6,8 +6,8 @@ import '../../../useful/radius.dart';
 import '../atomicButtons/normal_button.dart';
 
 class SignUpButton extends StatelessWidget {
-  const SignUpButton({required void Function() onPressed, super.key}) : _onPressed = onPressed;
-  final void Function() _onPressed;
+  const SignUpButton({void Function() ? onPressed, super.key}) : _onPressed = onPressed;
+  final void Function() ?  _onPressed; 
   final double _elevationValue = 20;
   final String _text = "SIGN UP";
   @override
