@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:mobx/mobx.dart';
 
 class BaseView<T extends Store> extends StatefulWidget {
-      const BaseView({super.key,required this.viewModel,required this.initial,required this.disposse,required this.build});
+      const BaseView({super.key,required this.initial,required this.viewModel,required this.disposse,required this.build});
       final T viewModel;
       final void Function(T viewModel) initial;
       final  void Function() disposse; 

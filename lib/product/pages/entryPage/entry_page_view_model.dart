@@ -1,33 +1,38 @@
 import 'package:flutter/material.dart';
+import '../../../core/extensions/context_extension.dart';
+import '../../useful/padding.dart';
 import '../../constants/app_constants.dart';
 
 import '../../../core/base/base_state.dart';
 import '../../enums/image_enum.dart';
 import '../../enums/router_enum.dart';
-import '../../useful/padding.dart';
-import '../../widgets/cards/image_card_widget.dart';
 import 'entry_page.dart';
+import 'entry_page_model.dart';
 
 abstract class EntryPageViewModel extends BaseState<EntryPage> {
-  final String entryPageTopText1 = "WELCOME TO";
-  final String entryPageTopText2 = "WEATHER APP";
-  final String startButtonText = "Let's Start";
-
-  final List<Widget> entryPageShowPageList = [
-    Padding(padding: const AppPadding.normalHorizontalPadding(), child: ImageCardWidget(path: ImageEnum.entry_img1.imagePath())),
-    Padding(padding: const AppPadding.normalHorizontalPadding(), child: ImageCardWidget(path: ImageEnum.entry_img2.imagePath())),
-    Padding(padding: const AppPadding.normalHorizontalPadding(), child: ImageCardWidget(path: ImageEnum.entry_img3.imagePath()))
+  List<EntryPageModel> modelList = [
+    EntryPageModel(title: "CHECK WEATHER", desc: "You can check daily weather with one click.", imgPath: ImageEnum.entry_img1.imagePath()),
+    EntryPageModel(
+        title: "DETAILED DATA",
+        desc: "You can see the weather conditions in 6 different time periods of the day and the weather conditions of the next 5 days in detail.",
+        imgPath: ImageEnum.entry_img2.imagePath()),
+    EntryPageModel(
+        title: "LOOK AT OTHER CITIES",
+        desc: "You can learn the weather conditions of cities in different parts of the world in detail.",
+        imgPath: ImageEnum.entry_img3.imagePath()),
   ];
+
   late final PageController pageViewController;
+  late final PageController pageViewController2;
   late final EntryPageConstantSized entryConstantSized;
   late final EntryPageConstantColor entryConstantColor;
   int currentPageIndex = 1;
   final pageCount = 3;
-  final double _viewFraction = 0.8;
   @override
   void initState() {
     super.initState();
-    pageViewController = PageController(initialPage: currentPageIndex, viewportFraction: _viewFraction);
+    pageViewController = PageController(initialPage: currentPageIndex);
+    pageViewController2 = PageController(initialPage: currentPageIndex);
     entryConstantSized = EntryPageConstantSized.constantSized;
     entryConstantColor = EntryPageConstantColor.constantColor;
   }
@@ -40,18 +45,41 @@ abstract class EntryPageViewModel extends BaseState<EntryPage> {
     return currentPageIndex == index ? entryConstantSized.circleContainerActiveSizes : entryConstantSized.circleContainerDismisSizes;
   }
 
-  List<Widget> createWidgetList<T>(int count, Widget Function({int index}) widget) {
-    List<Widget> widgetList = [];
-    for (int i = 0; i < count; i++) {
-      widgetList.add(widget(index: i));
-    }
-    return widgetList;
-  }
-
   void updateCircleContainer(int value) {
     setState(() {
+      pageViewController2.jumpToPage(value);
       currentPageIndex = value;
     });
+  }
+
+  Widget buildContainerImage(int index) {
+    return SizedBox(
+      child: Image.asset(
+        modelList[index].imgPath,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  Widget buildText(int index) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          modelList[index].title,
+          style: context.textTheme.headlineMedium,
+          textAlign: TextAlign.center,
+        ),
+        Padding(
+          padding: const AppPadding.normalHorizontalPadding(),
+          child: Text(
+            modelList[index].desc,
+            style: context.textTheme.titleMedium,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
+    );
   }
 
   void nextPage() {
@@ -72,8 +100,8 @@ class EntryPageConstantColor {
   static EntryPageConstantColor constantColor = EntryPageConstantColor._();
   static const double _passiveColorOpacity = AppConstants.middleOpacity;
   // Colorlar theme ya baglanabilir ....
-  final Color activeColor = Colors.orange;
-  final Color passiveColor = Colors.white.withOpacity(_passiveColorOpacity);
+  final Color activeColor = const Color(0xff6C63FF);
+  final Color passiveColor = Colors.grey.withOpacity(_passiveColorOpacity);
   final Color buttonIconColor = Colors.white;
   final Color buttonBackColor = Colors.green.shade300;
 }

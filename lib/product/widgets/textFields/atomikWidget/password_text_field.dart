@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({String? Function(String?)? validator,super.key}):_validator=validator;
-  final String? Function(String?)? _validator;
+  const PasswordTextField({TextEditingController ? controller,void Function(String value) ? onChanged,super.key}):_ctrl=controller,_onChange = onChanged;
+  final TextEditingController ? _ctrl;
+  final void Function(String  value) ?_onChange;
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
 }
@@ -13,9 +14,10 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   bool _obsecure = true;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      validator: widget._validator,
+    return TextField(
+      controller: widget._ctrl,
       obscureText: _obsecure,
+      onChanged:widget._onChange,
       autofillHints: const [AutofillHints.password, AutofillHints.newPassword],
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       keyboardType: TextInputType.number,

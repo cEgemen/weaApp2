@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import '../../constants/app_constants.dart';
+
 import '../../../core/extensions/context_extension.dart';
+import '../../constants/app_constants.dart';
 import 'logInPage/log_in_view.dart';
 import 'signUpPage/sign_up_view.dart';
+
 part 'sign_or_log_in_view_state.g.dart';
 
 class SignOrLogInViewState = _SignOrLogInViewState with _$SignOrLogInViewState;

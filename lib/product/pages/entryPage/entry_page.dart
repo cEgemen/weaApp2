@@ -15,7 +15,7 @@ class _EntryPageState extends EntryPageViewModel {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[400],
+        backgroundColor: Colors.white,
         body: Padding(
           padding: const AppPadding.normalHorizontalPadding(),
           child: Column(
@@ -24,13 +24,13 @@ class _EntryPageState extends EntryPageViewModel {
               const Spacer(
                 flex: 1,
               ),
-              Expanded(flex: 2, child: _entryPageTopText(context)),
-              Expanded(flex: 5, child: _pageView()),
+              Expanded(flex: 4, child: _pageViewImage()),
               Expanded(flex: 1, child: _pageViewBelow()),
-              Expanded(flex: 1, child: _customStartIconButton()),
-              const Spacer(
-                flex: 1,
+              Expanded(
+                flex: 2,
+                child: _pageViewText(),
               ),
+              Expanded(flex: 2, child: _customStartIconButton()),
             ],
           ),
         ),
@@ -38,22 +38,30 @@ class _EntryPageState extends EntryPageViewModel {
     );
   }
 
-  PageView _pageView() {
+  PageView _pageViewImage() {
     return PageView.builder(
       itemCount: pageCount,
       controller: pageViewController,
-      padEnds: true,
-      pageSnapping: true,
       onPageChanged: (value) {
         updateCircleContainer(value);
       },
       itemBuilder: (context, index) {
-        return entryPageShowPageList[index];
+        return buildContainerImage(index);
       },
     );
   }
 
-  Row _customStartIconButton() {
+  PageView _pageViewText() {
+    return PageView.builder(
+      itemCount: pageCount,
+      controller: pageViewController2,
+      itemBuilder: (context, index) {
+        return buildText(index);
+      },
+    );
+  }
+
+  Widget _customStartIconButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -78,30 +86,28 @@ class _EntryPageState extends EntryPageViewModel {
 
   Widget _pageViewBelow() {
     return Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: createWidgetList(pageCount, _circleDynamicContainer));
-  }
-
-  Widget _entryPageTopText(BuildContext context) {
-    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          entryPageTopText1,
-          style: Theme.of(context).textTheme.headlineSmall,
+        ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: pageCount,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return _circleDynamicContainer(index: index);
+          },
         ),
-        Text("${"\t" * entryPageTopText1.length}${entryPageTopText2}", style: Theme.of(context).textTheme.headlineSmall)
       ],
     );
   }
 
-  Container _circleDynamicContainer({int index = 0}) {
-    return Container(
-      height: isActiveSize(index),
-      width: isActiveSize(index),
-      decoration: BoxDecoration(color: isActiveColor(index), shape: BoxShape.circle),
+  Widget _circleDynamicContainer({int index = 0}) {
+    return Padding(
+      padding: const AppPadding.smallHorizontalPadding(),
+      child: Container(
+        height: isActiveSize(index),
+        width: isActiveSize(index),
+        decoration: BoxDecoration(color: isActiveColor(index), shape: BoxShape.circle),
+      ),
     );
   }
 }

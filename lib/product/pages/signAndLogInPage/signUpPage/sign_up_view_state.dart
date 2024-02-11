@@ -10,4 +10,7 @@ abstract class _SignUpViewStateBase with Store {
       final String nameTextFieldText = "User Name";
       final String emailTextFieldText= "Email";
       final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+
+      
 }
