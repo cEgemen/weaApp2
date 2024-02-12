@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:flutter_mobx/flutter_mobx.dart";
+import '../../../core/extensions/context_extension.dart';
 
 import '../../../core/base/base_state.dart';
 import '../../useful/radius.dart';
@@ -26,7 +27,7 @@ class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
           body: Column(
             children: [
               Expanded(
-                  flex: 2,
+                  flex:_setFlexValue(2),
                   child: Stack(
                     children: [
                       _bottomStackWidget(),
@@ -35,7 +36,7 @@ class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
                     ],
                   )),
               Expanded(
-                flex: 8,
+                flex:_setFlexValue(8),
                 child: Observer(
                   builder: (context) {
                     return _state.activePageReturner();
@@ -46,6 +47,8 @@ class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
           ),
         ),
       );
+
+  int _setFlexValue(int value) => context.mediaQ.viewInsets.bottom > 0 ? value-1 : value;
 
   Container _bottomStackWidget() {
     return Container();
@@ -106,7 +109,7 @@ class _SignOrLogInViewState extends BaseState<SignOrLogInView> {
         child: Text(
           _state.animatContainerText1,
           style: _state.animatedContainerTextStyle(context, ActivePageName.signUp),
-        ),
+                   ),
       ),
       onTap: () {
         _state.changeActivePage(ActivePageName.signUp);

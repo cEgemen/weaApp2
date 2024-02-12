@@ -25,8 +25,7 @@ class _SignUpViewState extends State<SignUpView> {
     return builder;
   }
 
-  Widget get builder => SafeArea(
-          child: Padding(
+  Widget get builder => Padding(
         padding: const AppPadding.normalHorizontalPadding(),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -40,7 +39,7 @@ class _SignUpViewState extends State<SignUpView> {
             ],
           ),
         ),
-      ));
+      );
 
   Column _formColumn() {
     return Column(

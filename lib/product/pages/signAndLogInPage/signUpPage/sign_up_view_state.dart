@@ -53,8 +53,10 @@ abstract class _SignUpViewStateBase with Store {
     } else {
       if (isEmailFieldReady != false) {
         isEmailFieldReady = false;
+          _checkButtonState();
         return;
       }
+        _checkButtonState();
       return;
     }
   }
@@ -64,7 +66,6 @@ abstract class _SignUpViewStateBase with Store {
     final String text = passwordField.text;
     if (text.length >= _maxPasswordLength) {
       if (text.length > _maxPasswordLength) {
-        print("password => $text");
         final subText = text.substring(0, text.length - 1);
         passwordField.text = subText;
       }
@@ -78,8 +79,10 @@ abstract class _SignUpViewStateBase with Store {
     } else {
       if (isPasswordFieldReady != false) {
         isPasswordFieldReady = false;
+          _checkButtonState();
         return;
       }
+        _checkButtonState();
       return;
     }
   }
@@ -98,8 +101,10 @@ abstract class _SignUpViewStateBase with Store {
     } else {
       if (isNameFieldReady != false) {
         isNameFieldReady = false;
+          _checkButtonState();
         return;
       }
+        _checkButtonState();
       return;
     }
   }
