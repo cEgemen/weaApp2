@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+
 import '../../../constants/app_constants.dart';
 import '../../../widgets/cards/circle_icon_card_widget.dart';
+
 part 'sign_up_view_state.g.dart';
 
 class SignUpViewState = _SignUpViewStateBase with _$SignUpViewState;

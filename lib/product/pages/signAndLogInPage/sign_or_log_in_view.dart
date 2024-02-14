@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import "package:flutter_mobx/flutter_mobx.dart";
-import '../../../core/extensions/context_extension.dart';
 
 import '../../../core/base/base_state.dart';
+import '../../../core/extensions/context_extension.dart';
 import '../../useful/radius.dart';
 import '../../widgets/containers/touchable_and_animated_container.dart';
 import 'sign_or_log_in_view_state.dart';

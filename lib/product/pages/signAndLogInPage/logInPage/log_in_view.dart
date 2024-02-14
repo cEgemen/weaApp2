@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
 import '../../../../core/base/base_view.dart';
-import 'log_in_view_state.dart';
 import '../../../useful/padding.dart';
 import '../../../widgets/buttons/templatesButtons/log_in_button.dart';
 import '../../../widgets/textFields/templateW%C4%B0dget/logIn_password_text_field.dart';
+import 'log_in_view_state.dart';
 
 class LogInView extends StatefulWidget {
   const LogInView({super.key});
