@@ -10,7 +10,7 @@ part of 'sign_or_log_in_view_state.dart';
 
 mixin _$SignOrLogInViewState on _SignOrLogInViewState, Store {
   late final _$activePageAtom =
-      Atom(name: '_SignOrLogInViewStateBase.activePage', context: context);
+      Atom(name: '_SignOrLogInViewState.activePage', context: context);
 
   @override
   ActivePageName get activePage {
@@ -25,17 +25,17 @@ mixin _$SignOrLogInViewState on _SignOrLogInViewState, Store {
     });
   }
 
-  late final _$_SignOrLogInViewStateBaseActionController =
-      ActionController(name: '_SignOrLogInViewStateBase', context: context);
+  late final _$_SignOrLogInViewStateActionController =
+      ActionController(name: '_SignOrLogInViewState', context: context);
 
   @override
   void changeActivePage(ActivePageName page) {
-    final _$actionInfo = _$_SignOrLogInViewStateBaseActionController
-        .startAction(name: '_SignOrLogInViewStateBase.changeActivePage');
+    final _$actionInfo = _$_SignOrLogInViewStateActionController.startAction(
+        name: '_SignOrLogInViewState.changeActivePage');
     try {
       return super.changeActivePage(page);
     } finally {
-      _$_SignOrLogInViewStateBaseActionController.endAction(_$actionInfo);
+      _$_SignOrLogInViewStateActionController.endAction(_$actionInfo);
     }
   }
 

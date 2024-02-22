@@ -19,7 +19,6 @@ class BaseView<T extends Store> extends StatefulWidget {
     super.initState();
      if(widget._initial != null)
      {
-      print("ddaas");
      widget._initial!(widget._viewModel);
      }
   }

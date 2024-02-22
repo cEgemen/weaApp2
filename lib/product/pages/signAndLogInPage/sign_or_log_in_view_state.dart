@@ -30,7 +30,7 @@ abstract class _SignOrLogInViewState with Store {
     return;
   }
 
-  @computed
+  
   Widget activePageReturner() {
     return activePage == ActivePageName.signUp ? const SignUpView() : const LogInView();
   }

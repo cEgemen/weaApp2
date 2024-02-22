@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/product/pages/mainPage/main_page.dart';
 
 import '../../enums/router_enum.dart';
 import '../../pages/entryPage/entry_page.dart';
@@ -13,12 +14,15 @@ class RouteManager with _Routemixin{
 
          Route<dynamic>? onGenerateRoute(RouteSettings settings){
               final String settPageName = settings.name ?? "/";
-              final RouterEnum pageEnum = RouterEnum.values.byName(settPageName == "/" ? "entryPage" : settPageName);
+           //   final RouterEnum pageEnum = RouterEnum.values.byName(settPageName == "/" ? "entryPage" : settPageName);
+           final RouterEnum pageEnum = RouterEnum.values.byName(settPageName == "/" ? "mainPage" : settPageName);
 
               switch(pageEnum)
               {
                 case RouterEnum.signAndLogInPage:
                 return toPage(const SignOrLogInView());
+                case RouterEnum.mainPage:
+                return toPage(const MainPage());
                 case RouterEnum.entryPage:
                 default:
                 return toPage(const  EntryPage(),);
