@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:weather_app_2/core/base/base_view.dart';
-import 'package:weather_app_2/product/pages/mainPage/main_view_model.dart';
+import '../../../core/base/base_view.dart';
+import 'main_view_model.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});

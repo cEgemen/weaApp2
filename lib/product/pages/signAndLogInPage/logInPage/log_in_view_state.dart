@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../core/base/base_view_model.dart';
 import '../../../constants/app_constants.dart';
 import '../../../widgets/cards/circle_icon_card_widget.dart';
+
 part 'log_in_view_state.g.dart';
 
 class LogInViewModel = _LogInViewModelBase with _$LogInViewModel;

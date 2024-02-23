@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:weather_app_2/core/base/base_view_model.dart';
-import 'package:weather_app_2/product/pages/mainPage/detailPage/detail_page.dart';
+import '../../../core/base/base_view_model.dart';
+import 'detailPage/detail_page.dart';
 
 import 'main2Page/main2_page.dart';
 part 'main_view_model.g.dart';

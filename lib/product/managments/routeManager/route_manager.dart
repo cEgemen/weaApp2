@@ -1,10 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:weather_app_2/product/pages/mainPage/main_page.dart';
 
 import '../../enums/router_enum.dart';
 import '../../pages/entryPage/entry_page.dart';
+import '../../pages/mainPage/main_page.dart';
 import '../../pages/signAndLogInPage/sign_or_log_in_view.dart';
 
 class RouteManager with _Routemixin{

@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+
 import '../../../../core/base/base_view.dart';
 import 'search_view_model.dart';
 

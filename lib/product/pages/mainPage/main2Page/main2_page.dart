@@ -2,8 +2,9 @@
 
    
     import 'package:flutter/material.dart';
-import 'package:weather_app_2/core/base/base_view.dart';
-import 'package:weather_app_2/product/pages/mainPage/main2Page/main2_view_model.dart';
+
+import '../../../../core/base/base_view.dart';
+import 'main2_view_model.dart';
 
 class Main2Page extends StatelessWidget {
       const Main2Page({super.key});

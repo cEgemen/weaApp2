@@ -4,13 +4,12 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+
 import '../../../core/base/base_error.dart';
 import '../../../core/base/base_model.dart';
 import '../../enums/http_request_type_enum.dart';
-import 'responseModel/response_model.dart';
-
 import 'responseModel/i_response_model.dart';
+import 'responseModel/response_model.dart';
 
 class MyDio with DioMixin implements Dio {
      
