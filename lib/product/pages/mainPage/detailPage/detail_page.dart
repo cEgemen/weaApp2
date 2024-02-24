@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/extensions/context_extension.dart';
 
 import '../../../../core/base/base_view.dart';
+import '../../../../core/extensions/context_extension.dart';
 import '../../../useful/padding.dart';
 import 'detail_view_model.dart';
 

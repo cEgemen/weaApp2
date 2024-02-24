@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../core/extensions/context_extension.dart';
-import '../../../useful/padding.dart';
 
 import '../../../../core/base/base_view.dart';
+import '../../../../core/extensions/context_extension.dart';
+import '../../../useful/padding.dart';
 import 'main2_view_model.dart';
 
 class Main2Page extends StatelessWidget {

@@ -20,21 +20,20 @@ class MainPage extends StatelessWidget {
 
   Widget builder(BuildContext context, MainViewModel state) => SafeArea(
         child: DefaultTabController(
-          length: 2,
+          length: 3,
           child: Scaffold(
-              floatingActionButton: FloatingActionButton(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-                child: const Icon(Icons.search_outlined),
-                onPressed: () {},
-              ),
-              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+              resizeToAvoidBottomInset: false,
               bottomNavigationBar: const BottomAppBar(
-                shape: CircularNotchedRectangle(),
-                notchMargin: 20,
                 child: TabBar(dividerColor: Colors.transparent, tabs: [
                   Tab(
                     icon: Icon(
                       Icons.home_outlined,
+                      size: 30,
+                    ),
+                  ),
+                  Tab(
+                    icon: Icon(
+                      Icons.search_outlined,
                       size: 30,
                     ),
                   ),

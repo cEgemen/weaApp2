@@ -4,5 +4,5 @@
  enum RouterEnum {
         entryPage,
         signAndLogInPage,
-        mainPage
+        mainPage,
  }
