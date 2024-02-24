@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../useful/padding.dart';
+
 import '../../../core/base/base_view.dart';
+import '../../useful/padding.dart';
 import 'main_view_model.dart';
 
 class MainPage extends StatelessWidget {

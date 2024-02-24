@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'searchPage/search_page.dart';
+
 import '../../../core/base/base_view_model.dart';
 import 'detailPage/detail_page.dart';
 import 'main2Page/main2_page.dart';
+import 'searchPage/search_page.dart';
+
 part 'main_view_model.g.dart';
 
 class MainViewModel = _MainViewModelBase with _$MainViewModel;

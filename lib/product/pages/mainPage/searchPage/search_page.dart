@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/extensions/context_extension.dart';
 
 import '../../../../core/base/base_view.dart';
@@ -62,10 +63,18 @@ class SearchPage extends StatelessWidget {
                     style: context.textTheme.titleMedium,
                   ),
                 ])),
-            SizedBox(
-                height: context.height * .18,
-                child: Card(
+            Observer(builder: (_) {
+              return AnimatedContainer(
+                  duration:const  Duration(milliseconds: 200),
+                  height: state.changeValue(context.height * .18, context.height * .5),
                   child: Stack(children: [
+                    AnimatedContainer(
+                      duration:const  Duration(milliseconds: 200),
+                      height: state.changeValue(context.height * .15, context.height * .47),
+                      child: Container(
+                        color: Colors.blueGrey,
+                      ),
+                    ),
                     SizedBox(
                       height: context.height * .15,
                       child: Card(
@@ -97,17 +106,23 @@ class SearchPage extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: 5,
-                      left: context.width * .4,
-                      child: Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(100)),
-                        child: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_downward_outlined)),
-                      ),
-                    )
-                  ]),
-                )),
+                        bottom: 3,
+                        left: context.width * .45,
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: Card(
+                            shape: const CircleBorder(),
+                            child: IconButton(
+                              onPressed: () {
+                                state.changeTouchState();
+                              },
+                              icon: Icon(state.changeIconButtonIcon),
+                            ),
+                          ),
+                        ))
+                  ]));
+            }),
             const Spacer(
               flex: 5,
             )

@@ -10,7 +10,28 @@ part 'search_view_model.g.dart';
      class SearchViewModel = _SearchViewModelBase with _$SearchViewModel;
      
      abstract class _SearchViewModelBase with Store , BaseViewModel{
-              @override
+
+         @observable
+         bool isTouch = false;
+
+         @action
+         void changeTouchState()
+         {
+            isTouch = !isTouch;
+         } 
+           
+         double changeValue(double passiveValue,double activeValue )
+         {
+             return isTouch ? activeValue : passiveValue;
+         } 
+         
+         @computed
+         IconData get changeIconButtonIcon
+         {
+                return isTouch ? Icons.arrow_upward_outlined :Icons.arrow_downward_outlined;
+         }
+
+  @override
   void setBuildContext(BuildContext context) {
            bContext = context;
   }
