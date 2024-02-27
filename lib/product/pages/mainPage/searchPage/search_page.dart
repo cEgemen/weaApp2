@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/extensions/context_extension.dart';
-
 import '../../../../core/base/base_view.dart';
 import 'search_view_model.dart';
 
@@ -65,45 +62,58 @@ class SearchPage extends StatelessWidget {
                 ])),
             Observer(builder: (_) {
               return AnimatedContainer(
-                  duration:const  Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   height: state.changeValue(context.height * .18, context.height * .5),
                   child: Stack(children: [
                     AnimatedContainer(
-                      duration:const  Duration(milliseconds: 200),
-                      height: state.changeValue(context.height * .15, context.height * .47),
-                      child: Container(
-                        color: Colors.blueGrey,
-                      ),
-                    ),
+                        duration: const Duration(milliseconds: 200),
+                        height: state.changeValue(context.height * .15, context.height * .47),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: context.height * .15,
+                            ),
+                            Expanded(
+                              child: ListView.builder(
+                                itemCount: 5,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(top: 5),
+                                    child: SizedBox(
+                                        height: context.height * .1,
+                                        child: Card(
+                                          elevation: 4.0 * (4 - index) == 0 ? 1 : 4.0 * (4 - index),
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                  flex: 6,
+                                                  child: Column(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        "15 °",
+                                                        style: context.textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold),
+                                                      ),
+                                                      Text(
+                                                        "H:15 °  L:12°",
+                                                        style: context.textTheme.titleSmall,
+                                                      ),
+                                                    ],
+                                                  )),
+                                              const Expanded(flex: 4, child: Placeholder())
+                                            ],
+                                          ),
+                                        )),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        )),
                     SizedBox(
                       height: context.height * .15,
-                      child: Card(
-                        child: Row(
-                          children: [
-                            Expanded(
-                                flex: 6,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "19 °",
-                                      style: context.textTheme.headlineLarge!.copyWith(fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      "H:18 °  L:10 °",
-                                      style: context.textTheme.titleMedium,
-                                    ),
-                                    Text(
-                                      "Istanbul",
-                                      style: context.textTheme.titleMedium,
-                                    )
-                                  ],
-                                )),
-                            const Expanded(flex: 4, child: Placeholder())
-                          ],
-                        ),
-                      ),
+                      child: _weatherDetailCard(context),
                     ),
                     Positioned(
                         bottom: 3,
@@ -128,5 +138,36 @@ class SearchPage extends StatelessWidget {
             )
           ],
         ));
+  }
+
+  Card _weatherDetailCard(BuildContext context) {
+    return Card(
+      elevation: 20,
+      child: Row(
+        children: [
+          Expanded(
+              flex: 6,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "19 °",
+                    style: context.textTheme.headlineLarge!.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "H:18 °  L:10 °",
+                    style: context.textTheme.titleMedium,
+                  ),
+                  Text(
+                    "Istanbul",
+                    style: context.textTheme.titleMedium,
+                  )
+                ],
+              )),
+          const Expanded(flex: 4, child: Placeholder())
+        ],
+      ),
+    );
   }
 }

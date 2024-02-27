@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/product/pages/mainPage/settingsPage/settings_page.dart';
 
 import '../../enums/router_enum.dart';
 import '../../pages/entryPage/entry_page.dart';
@@ -23,6 +24,8 @@ class RouteManager with _Routemixin{
                 return toPage(const SignOrLogInView());
                 case RouterEnum.mainPage:
                 return toPage(const MainPage());
+                case RouterEnum.settingsPage:
+                return toPage(const SettingPage());
                 case RouterEnum.entryPage:
                 default:
                 return toPage(const  EntryPage(),);

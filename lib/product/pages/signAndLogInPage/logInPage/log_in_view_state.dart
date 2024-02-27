@@ -3,7 +3,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../../../core/base/base_view_model.dart';
 import '../../../constants/app_constants.dart';
-import '../../../widgets/cards/circle_icon_card_widget.dart';
+import '../../../widgets/cards/atomicCardWİdgets/circle_icon_card_widget.dart';
 
 part 'log_in_view_state.g.dart';
 

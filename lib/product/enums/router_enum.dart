@@ -5,4 +5,5 @@
         entryPage,
         signAndLogInPage,
         mainPage,
+        settingsPage
  }

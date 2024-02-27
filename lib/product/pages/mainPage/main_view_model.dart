@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-
 import '../../../core/base/base_view_model.dart';
 import 'detailPage/detail_page.dart';
 import 'main2Page/main2_page.dart';

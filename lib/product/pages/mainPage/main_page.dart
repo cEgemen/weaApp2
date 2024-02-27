@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../core/base/base_view.dart';
 import '../../useful/padding.dart';
 import 'main_view_model.dart';
